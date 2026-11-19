@@ -130,6 +130,35 @@ function ReviewPage() {
             <img src={serviceReviewImage} alt="Service après-vente Unicompex" />
           </figure>
         </section>
+
+        <section className="review-recommendations">
+          <div className="site-container">
+            <div className="review-recommendations-heading">
+              <p className="eyebrow"><span /> POUR ALLER PLUS LOIN</p>
+              <h2>Cela pourrait aussi<br /><span>vous intéresser.</span></h2>
+            </div>
+            <div className="review-recommendations-grid">
+              <article className="review-recommendation-card">
+                <span className="review-recommendation-number">01</span>
+                <h3>Pièces de rechange</h3>
+                <p>Trouvez les pièces adaptées à votre groupe électrogène FG Wilson ou à votre moteur Perkins.</p>
+                <a href="/pieces-de-rechange.html">Découvrir le catalogue <ArrowIcon /></a>
+              </article>
+              <article className="review-recommendation-card">
+                <span className="review-recommendation-number">02</span>
+                <h3>Besoin d’un entretien ?</h3>
+                <p>Notre équipe après-vente vous accompagne pour l’entretien et le dépannage de votre équipement.</p>
+                <a href="/contact.html">Contacter notre équipe <ArrowIcon /></a>
+              </article>
+              <article className="review-recommendation-card">
+                <span className="review-recommendation-number">03</span>
+                <h3>Un projet à chiffrer ?</h3>
+                <p>Parlez-nous de votre besoin et demandez un devis personnalisé pour votre installation.</p>
+                <a href="/devis.html">Demander un devis <ArrowIcon /></a>
+              </article>
+            </div>
+          </div>
+        </section>
       </main>
 
       <dialog

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import './App.css'
 import './ContactPage.css'
 import { ArrowIcon, SiteFooter, SiteHeader, WhatsAppButton } from './SiteChrome'
@@ -259,6 +259,16 @@ function OfficeCard({ office }) {
 }
 
 function ContactPage() {
+  const teamGalleryRef = useRef(null)
+  const teamPhotoRefs = useRef([])
+
+  function openTeamPhoto(index) {
+    teamGalleryRef.current.showModal()
+    requestAnimationFrame(() => {
+      teamPhotoRefs.current[index]?.scrollIntoView({ block: 'start' })
+    })
+  }
+
   return (
     <div className="site-shell">
       <SiteHeader contactPage />
@@ -317,12 +327,19 @@ function ContactPage() {
                 <p className="eyebrow"><span /> UNE ÉQUIPE À VOTRE SERVICE</p>
                 <h2>Rencontrez notre équipe</h2>
               </div>
-              <p>À Kinshasa, nos équipes commerciales, financières et techniques vous accompagnent.</p>
+              <p>À Kinshasa, nos équipes commerciales, financières et techniques vous accompagnent. Cliquez sur une photo pour l’agrandir et faites défiler pour découvrir l’équipe.</p>
             </div>
             <div className="team-grid">
-              {team.map((person) => (
+              {team.map((person, index) => (
                 <article className="team-card" key={person.name}>
-                  <img src={person.photo} alt={person.name} loading="lazy" />
+                  <button
+                    className="team-photo-button"
+                    type="button"
+                    onClick={() => openTeamPhoto(index)}
+                    aria-label={`Agrandir la photo de ${person.name}`}
+                  >
+                    <img src={person.photo} alt={person.name} loading="lazy" />
+                  </button>
                   <div className="team-card-caption">
                     <h3>{person.name}</h3>
                     <p>{person.role}</p>
@@ -346,6 +363,32 @@ function ContactPage() {
           </div>
         </section>
       </main>
+
+      <dialog className="team-gallery-dialog" ref={teamGalleryRef} aria-label="Photos de notre équipe">
+        <button
+          className="team-gallery-close"
+          type="button"
+          onClick={() => teamGalleryRef.current.close()}
+          aria-label="Fermer la galerie photo"
+        >
+          ×
+        </button>
+        <div className="team-gallery-scroll">
+          {team.map((person, index) => (
+            <figure
+              className="team-gallery-item"
+              key={person.name}
+              ref={(element) => { teamPhotoRefs.current[index] = element }}
+            >
+              <img src={person.photo} alt={`${person.name}, ${person.role}`} loading="lazy" />
+              <figcaption>
+                <strong>{person.name}</strong>
+                <span>{person.role}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </dialog>
 
       <SiteFooter />
       <WhatsAppButton />

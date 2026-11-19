@@ -239,13 +239,110 @@
   background: white;
 }
 
-.team-card > img {
+.team-photo-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: #e8eef4;
+  cursor: zoom-in;
+}
+
+.team-photo-button:focus-visible {
+  outline: 3px solid var(--brand-accent);
+  outline-offset: -3px;
+}
+
+.team-photo-button img {
   display: block;
   width: 100%;
   aspect-ratio: 1 / 0.88;
   background: #e8eef4;
   object-fit: cover;
   object-position: center 35%;
+}
+
+.team-gallery-dialog {
+  position: fixed;
+  width: min(940px, calc(100% - 28px));
+  max-width: 940px;
+  height: min(88vh, 900px);
+  max-height: 900px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 6px;
+  background: #071d35;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
+}
+
+.team-gallery-dialog::backdrop {
+  background: rgba(3, 18, 35, 0.88);
+}
+
+.team-gallery-scroll {
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+
+.team-gallery-item {
+  display: grid;
+  min-height: 100%;
+  margin: 0;
+  padding: 56px 56px 28px;
+  place-content: center;
+  justify-items: center;
+  scroll-snap-align: start;
+}
+
+.team-gallery-item img {
+  display: block;
+  width: 100%;
+  height: min(68vh, 650px);
+  object-fit: contain;
+}
+
+.team-gallery-item figcaption {
+  display: grid;
+  gap: 5px;
+  margin-top: 16px;
+  color: white;
+  text-align: center;
+}
+
+.team-gallery-item figcaption strong {
+  font-size: 15px;
+}
+
+.team-gallery-item figcaption span {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 12px;
+}
+
+.team-gallery-close {
+  position: absolute;
+  z-index: 1;
+  top: 12px;
+  right: 14px;
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  color: white;
+  background: rgba(255, 255, 255, 0.12);
+  font: inherit;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.team-gallery-close:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 3px;
 }
 
 .team-card-caption {
@@ -503,6 +600,14 @@
   .team-card-caption {
     min-height: 78px;
     padding: 10px;
+  }
+
+  .team-gallery-item {
+    padding: 54px 18px 22px;
+  }
+
+  .team-gallery-item img {
+    height: 62vh;
   }
 
   .offices-section {
