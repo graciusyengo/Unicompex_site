@@ -1,0 +1,149 @@
+.account-page {
+  min-height: 65vh;
+  padding-block: 34px 80px;
+}
+
+.account-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--brand-blue);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.account-back-link:hover {
+  color: var(--brand-blue-deep);
+}
+
+.account-card {
+  width: min(100%, 480px);
+  margin: 35px auto 0;
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 15px 44px rgba(7, 54, 109, 0.09);
+}
+
+.account-card-heading {
+  text-align: center;
+}
+
+.account-card-heading .eyebrow {
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.account-card-heading h1 {
+  margin: 0;
+  color: var(--brand-blue-deep);
+  font-size: 30px;
+  letter-spacing: -1px;
+}
+
+.account-card-heading > p:last-child {
+  margin: 9px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.account-mode-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin: 25px 0 21px;
+  padding: 4px;
+  border-radius: 4px;
+  background: #f0f4f8;
+}
+
+.account-mode-switch button {
+  min-height: 39px;
+  border: 0;
+  border-radius: 3px;
+  color: #627487;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.account-mode-switch button.active {
+  color: var(--brand-blue);
+  background: white;
+  box-shadow: 0 1px 5px rgba(7, 54, 109, 0.12);
+}
+
+.account-page-form {
+  display: grid;
+  gap: 16px;
+}
+
+.account-page-form .quote-control {
+  margin: 0;
+}
+
+.account-demo-warning {
+  padding: 11px 12px;
+  border: 1px solid #e6ca82;
+  border-radius: 3px;
+  color: #67521e;
+  background: #fff9e8;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.account-page-status {
+  margin: 0;
+  padding: 11px 12px;
+  border: 1px solid #e6ca82;
+  border-radius: 3px;
+  color: #67521e;
+  background: #fff9e8;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.account-page-submit {
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.account-switch-prompt {
+  margin: 20px 0 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: 11px;
+}
+
+.account-switch-prompt button {
+  padding: 0;
+  border: 0;
+  color: var(--brand-blue);
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .account-page {
+    min-height: 60vh;
+    padding-block: 24px 55px;
+  }
+
+  .account-card {
+    margin-top: 24px;
+    padding: 23px 18px;
+  }
+
+  .account-card-heading h1 {
+    font-size: 26px;
+  }
+}
